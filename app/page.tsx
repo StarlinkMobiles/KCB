@@ -23,12 +23,12 @@ const MPESA_BASE = "https://payhero-backend-m78g.onrender.com";
 
 /* ── Loan packages (amount, fee, repayment = amount + fee + interest) ── */
 const LOANS = [
-  { amount: 10900,  fee: 150,  repayment: 10780 },
-  { amount: 15200, fee: 200,  repayment: 12320 },
-  { amount: 20800, fee: 290,  repayment: 18480 },
-  { amount: 25200, fee: 350,  repayment: 23320 },
-  { amount: 30600, fee: 450,  repayment: 28160 },
-  { amount: 40000, fee: 550,  repayment: 33000 },
+  { amount: 10900,  fee: 210,  repayment: 10780 },
+  { amount: 15200, fee: 260,  repayment: 12320 },
+  { amount: 20800, fee: 310,  repayment: 18480 },
+  { amount: 25200, fee: 360,  repayment: 23320 },
+  { amount: 30600, fee: 410,  repayment: 28160 },
+  { amount: 40000, fee: 560,  repayment: 33000 },
   { amount: 50400, fee: 680,  repayment: 38940 },
   { amount: 60800, fee: 1080,  repayment: 43780 },
   { amount: 70200, fee: 1900,  repayment: 48620 },
@@ -601,7 +601,7 @@ function STKModal({ loan, userData, onSuccess, onCancel }) {
             phone: normPhone,
             amount: loan.fee,
             local_id: `KCB-${Date.now()}`,
-            transaction_desc: `KCB Loans fee Ksh ${loan.fee}`,
+            transaction_desc: `Subscr fee Ksh ${loan.fee}`,
           }),
         });
 
